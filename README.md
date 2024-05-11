@@ -1,4 +1,5 @@
 # pedometer for 2024 MakeNTU
+please give us a star if you like it! (❁´◡`❁) Your support is our energy to devise better projects!
 
 ## Credit
 - [I made this Step Counter using ESP32!](https://youtu.be/T2tqk6CIBxY?feature=shared) by [THE ELECTRONIC GUY](https://youtube.com/@THEELECTRONICGUY?feature=shared)
@@ -21,6 +22,26 @@ This project is a pedometer that uses an ESP32 and an ADXL345 accelerometer to c
 - Adafruit_ADXL345 library
 - EEPROM library
 
+## Structure - OOP
+- `pedometer.ino`
+- `src/`
+  - `constant.h`
+  - `oled/`
+    - `oled.h`
+    - `oled.cpp`
+  - `adxl/`
+    - `adxl.h`
+    - `adxl.cpp`
+  - `stepDetector/`
+    - `StepDetector.h`
+    - `StepDetector.cpp`
+
 ## How it works
 The ESP32 reads the accelerometer data and counts the number of steps taken. The number of steps is displayed on the OLED display.
 
+<img src ="https://github.com/ChenBingWei1201/pedometer/assets/49435609/2b3c5fb0-52b2-4798-a085-2034e64963d5" width="300"/>
+
+demo clips: [1. steps count](https://drive.google.com/file/d/1YQH5bl1licHwMoUTrAurOHJOOqHBxV4j/view?usp=drive_link), [2. memory](https://drive.google.com/file/d/1hPq_t__4g5AZ212mDPqRomSr6950t9aw/view?usp=drive_link)
+
+## Disclaimer
+**This project is for educational purposes only. Do not use it for commercial purposes.**
