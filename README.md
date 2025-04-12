@@ -75,9 +75,11 @@ pedometer/
 
 ## 📚 References
 
-- [THE ELECTRONIC GUY](https://youtube.com/@THEELECTRONICGUY): [ESP32 Step Counter Tutorial](https://youtu.be/T2tqk6CIBxY)
-- [ElectronicBlog](https://electronicblogs.com/esp32-step-tracker-web-integrated-counter-project/): ESP32 Step Tracker reference
-- [Adafruit](https://github.com/adafruit) for the SSD1306 and ADXL345 libraries
+- [I made this Step Counter using ESP32!](https://youtu.be/T2tqk6CIBxY?feature=shared) by [THE ELECTRONIC GUY](https://youtube.com/@THEELECTRONICGUY?feature=shared)
+- [ESP32 Step Tracker: Web-Integrated Counter Project](https://electronicblogs.com/esp32-step-tracker-web-integrated-counter-project/?fbclid=IwZXh0bgNhZW0CMTAAAR10UKi_eMHOYploklr9qOu50kAIZxe4UbqpVxCGjoUsV0_kMw_gDamnK9k_aem_AQmqz4e9_FJ34JsNXachKuukFWAZyuKCk6N65YAB-VNRh45kmFG0i_oGAHzd4Mr2E1Sgk92zvUInMnwh0xafVQHQ) February 8, 2024 by electronicblog296 
+- [Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306)
+- [Adafruit_ADXL345](https://github.com/adafruit/Adafruit_ADXL345)
+- [EEPROM](https://docs.arduino.cc/learn/built-in-libraries/eeprom/)
 
 ## ⚠️ Disclaimer & License
 
