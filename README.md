@@ -1,47 +1,90 @@
-# pedometer for 2024 MakeNTU
-please give us a star if you like it! (❁´◡`❁) Your support is our energy to devise better projects!
+# ESP32 Pedometer
 
-## Credit
-- [I made this Step Counter using ESP32!](https://youtu.be/T2tqk6CIBxY?feature=shared) by [THE ELECTRONIC GUY](https://youtube.com/@THEELECTRONICGUY?feature=shared)
-- [ESP32 Step Tracker: Web-Integrated Counter Project](https://electronicblogs.com/esp32-step-tracker-web-integrated-counter-project/?fbclid=IwZXh0bgNhZW0CMTAAAR10UKi_eMHOYploklr9qOu50kAIZxe4UbqpVxCGjoUsV0_kMw_gDamnK9k_aem_AQmqz4e9_FJ34JsNXachKuukFWAZyuKCk6N65YAB-VNRh45kmFG0i_oGAHzd4Mr2E1Sgk92zvUInMnwh0xafVQHQ) February 8, 2024 by electronicblog296 
-- [Adafruit_SSD1306](https://github.com/adafruit/Adafruit_SSD1306)
-- [Adafruit_ADXL345](https://github.com/adafruit/Adafruit_ADXL345)
-- [EEPROM](https://docs.arduino.cc/learn/built-in-libraries/eeprom/)
+A lightweight, battery-efficient step counter built with ESP32 and ADXL345 accelerometer. Created for 2024 MakeNTU hackathon.
 
-## Introduction
-This project is a pedometer that uses an ESP32 and an ADXL345 accelerometer to count the number of steps taken. The number of steps is displayed on an OLED display. If the power to ESP32 is corrupted, the number of steps remains.
+![Pedometer Device](https://github.com/ChenBingWei1201/pedometer/assets/49435609/2b3c5fb0-52b2-4798-a085-2034e64963d5)
 
-## Hardware
-- ESP32 
-- ADXL345 accelerometer
-- SSD1306 OLED display
+## ✨ Features
 
-## Software
+- **Accurate Step Counting**: Uses acceleration magnitude algorithm for reliable step detection
+- **Persistent Memory**: Retains step count even when power is lost
+- **Low Power Consumption**: Optimized for portable use
+- **Touch Reset**: Easy step counter reset with ESP32's touch sensor
+- **Real-time Display**: Instant step count feedback on OLED screen
+
+## 🔧 Hardware Requirements
+
+- ESP32 Microcontroller
+- ADXL345 3-Axis Accelerometer
+- SSD1306 OLED Display (128x64)
+- Connecting wires
+- Power source (battery or USB)
+
+## 📦 Software Dependencies
+
 - Arduino IDE
-- Adafruit_SSD1306 library
-- Adafruit_ADXL345 library
-- EEPROM library
+- Libraries:
+  - Adafruit_SSD1306
+  - Adafruit_ADXL345
+  - Adafruit_GFX
+  - Wire
+  - EEPROM
 
-## Structure - OOP
-- `pedometer.ino`
-- `src/`
-  - `constant.h`
-  - `oled/`
-    - `oled.h`
-    - `oled.cpp`
-  - `adxl/`
-    - `adxl.h`
-    - `adxl.cpp`
-  - `stepDetector/`
-    - `StepDetector.h`
-    - `StepDetector.cpp`
+## 🏗️ Project Structure
 
-## How it works
-The ESP32 reads the accelerometer data and counts the number of steps taken. The number of steps is displayed on the OLED display.
+```
+pedometer/
+│
+├── pedometer.ino              # Main program file
+├── src/
+│   ├── constant.h             # Constants and configuration
+│   ├── oled/                  # OLED display module
+│   │   ├── oled.h
+│   │   └── oled.cpp
+│   ├── adxl/                  # Accelerometer module
+│   │   ├── adxl.h
+│   │   └── adxl.cpp
+│   └── stepDetector/          # Step detection algorithm
+│       ├── StepDetector.h
+│       └── StepDetector.cpp
+```
 
-<img src ="https://github.com/ChenBingWei1201/pedometer/assets/49435609/2b3c5fb0-52b2-4798-a085-2034e64963d5" width="300"/>
+## 🚀 How It Works
 
-demo clips: [1. steps count](https://drive.google.com/file/d/1YQH5bl1licHwMoUTrAurOHJOOqHBxV4j/view?usp=drive_link), [2. memory](https://drive.google.com/file/d/1hPq_t__4g5AZ212mDPqRomSr6950t9aw/view?usp=drive_link)
+1. The ADXL345 accelerometer captures motion in three dimensions (X, Y, Z)
+2. The StepDetector algorithm:
+   - Calculates the magnitude of acceleration across all axes
+   - Maintains a rolling buffer of recent values
+   - Detects a step when movement exceeds average + threshold
+   - Uses debounce logic to prevent false counts
+3. Step count is displayed on the OLED screen and saved to EEPROM
+4. Touch the T0 pin to reset the counter
 
-## Disclaimer
-**This project is for educational purposes only. Do not use it for commercial purposes.**
+## 📺 Demo
+
+- [Step Count Demo](https://drive.google.com/file/d/1YQH5bl1licHwMoUTrAurOHJOOqHBxV4j/view?usp=drive_link)
+- [Memory Persistence Demo](https://drive.google.com/file/d/1hPq_t__4g5AZ212mDPqRomSr6950t9aw/view?usp=drive_link)
+
+## 🔄 Usage
+
+1. Connect the hardware components according to the pins defined in the code
+2. Upload the code to your ESP32
+3. Power on the device
+4. Start walking to see the step count increase
+5. Touch the T0 pin to reset the counter when needed
+
+## 📚 References
+
+- [THE ELECTRONIC GUY](https://youtube.com/@THEELECTRONICGUY): [ESP32 Step Counter Tutorial](https://youtu.be/T2tqk6CIBxY)
+- [ElectronicBlog](https://electronicblogs.com/esp32-step-tracker-web-integrated-counter-project/): ESP32 Step Tracker reference
+- [Adafruit](https://github.com/adafruit) for the SSD1306 and ADXL345 libraries
+
+## ⚠️ Disclaimer & License
+
+This project is for educational purposes only. Not intended for commercial use.
+
+This project is licensed under the [Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0)](LICENSE). You are free to use, share, and adapt the material for non-commercial purposes, provided you give appropriate credit to the original authors.
+
+---
+
+⭐ If you find this project helpful, please give it a star! Your support motivates us to create better projects! (❁´◡`❁)
